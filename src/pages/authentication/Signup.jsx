@@ -89,7 +89,7 @@ const Signup = () => {
                     </Link>
 
                     <h2 className="mt-4 text-lg font-semibold text-center leading-9">
-                        Create a New Account
+                        Hey User! Create a New Account
                     </h2>
 
                     <p className="mt-1  text-sm text-center leading-5 max-w">
