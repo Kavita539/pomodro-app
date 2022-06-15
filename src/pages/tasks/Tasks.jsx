@@ -4,7 +4,7 @@ const Tasks = () => {
     return(
         <div>
             <Navbar />
-            Home
+             Tasks
         </div>
     );
 };
