@@ -14,14 +14,14 @@ const Footer = () => {
 				<div>
 					<div className="text-xl my-4">© 2022 Copyright: Kayyndra</div>
 					<div className="text-4xl flex gap-4 justify-between ">
-						<a href="">
+						<a href="https://www.linkedin.com/in/kavita-pathak03/">
 							<i className="fab fa-linkedin hover:text-black dark:hover:text-blue-400 "></i>
 						</a>
 
-						<a href="">
+						<a href="https://twitter.com/KavitaP_03">
 							<i className="fab fa-twitter-square hover:text-black dark:hover:text-blue-400"></i>
 						</a>
-						<a href="">
+						<a href="https://github.com/Kavita539">
 							<i className="fab fa-github-square hover:text-black dark:hover:text-blue-400"></i>
 						</a>
 					</div>
