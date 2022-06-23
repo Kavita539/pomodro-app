@@ -1,1 +1,10 @@
-export {AuthProvider, useAuth} from "./authContext"
+export {
+    AuthProvider,
+    useAuth
+}
+from "./authContext";
+export {
+    TaskProvider,
+    useTask
+}
+from "./taskContext";

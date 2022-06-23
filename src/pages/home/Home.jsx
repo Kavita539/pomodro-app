@@ -1,14 +1,19 @@
 import React from "react";
-import { Footer, Navbar } from "../../components";
-import { Link } from "react-router-dom";
+import {
+    Footer,
+    Navbar
+} from "../../components";
+import {
+    Link
+} from "react-router-dom";
 import herobanner from "../../assets/herobanner.png";
 
 const Home = () => {
     return(
-        
-		<div className="bg-white dark:bg-neutral-800 dark:text-white">
+        <>
+		<div className="bg-white dark:bg-neutral-800 dark:text-white ">
         <Navbar />
-        <div className="relative w-screen flex flex-col">
+        <div className="relative w-screen flex flex-col overflow-x-hidden ">
             <div className="text-center pt-8  sm:text-blue sm:absolute sm:top-1/4  self-center  ">
                 <h2 className="font-extrabold text-5xl m-4 ">
                     Kayyndra
@@ -23,13 +28,14 @@ const Home = () => {
                 </Link>
             </div>
             <img
-                className="bg-no-repeat bg-cover w-full h-full "
+                className="bg-no-repeat bg-cover w-full h-full overflow-x-hidden"
                 src={herobanner}
                 alt="Banner"
             />
         </div>
         <Footer />
     </div>
+    </>
         
         
     );

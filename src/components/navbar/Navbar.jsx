@@ -1,18 +1,41 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { useAuth } from "../../context";
-import { authConstants } from "../../constants";
-import { SunIcon, MoonIcon, MenuIcon, XIcon } from "@heroicons/react/solid";
-import { toastStyle } from "../../utils";
+import React, {
+	useState
+} from "react";
+import {
+	Link,
+	useNavigate
+} from "react-router-dom";
+import {
+	toast
+} from "react-toastify";
+import {
+	useAuth
+} from "../../context";
+import {
+	authConstants
+} from "../../constants";
+import {
+	SunIcon,
+	MoonIcon,
+	MenuIcon,
+	XIcon
+} from "@heroicons/react/solid";
+import {
+	toastStyle
+} from "../../utils";
 
 
 const Navbar = () => {
 const navigate = useNavigate();
 
-let Links = [
-{ name: "Tasks", link: "/tasks" },
-{ name: "Pomodro", link: "/pomodro" },
+let Links = [{
+		name: "Tasks",
+		link: "/tasks"
+	},
+	{
+		name: "Pomodro",
+		link: "/pomodro"
+	},
 ];
 
 const [mobileNav, setMobileNav] = useState(false);
@@ -20,17 +43,19 @@ const [mobileNav, setMobileNav] = useState(false);
 const [theme, setTheme] = useState("Light");
 
 const {
-authState : {token},
-authDispatch,
+	authState: {
+		token
+	},
+	authDispatch,
 } = useAuth();
 
 const logoutHandler = (dispatch) => {
-localStorage.removeItem("token");
-dispatch({
-type: authConstants.LOGOUT,
-});
-navigate("/");
-toast.success("Logout Successfully ", toastStyle);
+		localStorage.removeItem("token");
+		dispatch({
+			type: authConstants.LOGOUT,
+		});
+		navigate("/");
+		toast.success("Logout Successfully ", toastStyle);
 };
 return(
 <div className="shadow-md w-full sticky top-0 left-0 md:flex justify-around  items-center  bg-white  py-4 md:px-10 px-7 text-lg font-medium dark:bg-neutral-700 dark:text-white transition-all duration-300 ease-in z-10">
