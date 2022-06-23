@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
   return ( 
-    <div className = "App" >
+    <div className="bg-sky-400 dark:bg-neutral-800 dark:text-white min-h-screen ">
     <NavigationRoutes />
     <ToastContainer />
     </div>

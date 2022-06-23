@@ -1,8 +1,20 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import { Home, Login, Signup, Pomodro, UserProfile, Tasks } from "../pages";
+import {
+    Routes,
+    Route
+} from "react-router-dom";
+import {
+    Home,
+    Login,
+    Signup,
+    Pomodro,
+    UserProfile,
+    Tasks
+} from "../pages";
 import Mockman from "mockman-js";
-import { PrivateRoutes } from "./PrivateRoutes";
+import {
+    PrivateRoutes
+} from "./PrivateRoutes";
 
 const NavigationRoutes = () => {
 return(
@@ -17,5 +29,6 @@ return(
     </Routes>
 );
 };
-
-export {NavigationRoutes};
+export {
+    NavigationRoutes
+};
