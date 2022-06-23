@@ -3,8 +3,7 @@ import React, {
 } from "react";
 import {
 	Link,
-	useNavigate,
-	useLocation
+	useNavigate
 } from "react-router-dom";
 import {
 	toast
@@ -49,8 +48,6 @@ const {
 	},
 	authDispatch,
 } = useAuth();
-
-const location = useLocation();
 
 const logoutHandler = (dispatch) => {
 		localStorage.removeItem("token");
