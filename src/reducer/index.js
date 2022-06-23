@@ -6,3 +6,7 @@ export {
     taskReducer
 }
 from "../reducer/taskReducer";
+export {
+    timeReducer
+}
+from "../reducer/timeReducer";
