@@ -10,3 +10,7 @@ export {
     TaskModal
 }
 from "./taskModal/TaskModal";
+export { 
+    SettingsModal
+}
+from "./settingsModal/SettingsModal";

@@ -15,8 +15,8 @@ const TimerProvider = ({
         children
     }) => {
         const [timeState, timeDispatch] = useReducer(timeReducer, {
-            workMinutes: 25,
-            breakMinutes: 5,
+            workTimeMinutes: 25,
+            breakTimeMinutes: 5,
         });
     
     return (
