@@ -106,23 +106,23 @@ return(
 							logoutHandler(authDispatch);
 						}}
 					>
-						<p className="hover:text-blue-500 duration-500 ">Logout</p>
+						<p className="hover:text-blue-500 duration-500 cursor-pointer">Logout</p>
 					</li>
 				) : (
 					<li className="md:ml-8 text-l md:my-0 my-7  ">
-						<Link to="/login" className=" hover:text-blue-500 duration-500">
+						<Link to="/login" className=" hover:text-blue-500 duration-500 cursor-pointer">
 							Login
 						</Link>
 					</li>
 				)}
 				{theme === "Light" ? (
 					<SunIcon
-						className="hidden h-6 w-6 ml-10 md:block "
+						className="hidden h-6 w-6 ml-10 md:block cursor-pointer"
 						onClick={() => setTheme("Dark")}
 					/>
 				) : (
 					<MoonIcon
-						className="hidden h-6 w-6 ml-10 md:block "
+						className="hidden h-6 w-6 ml-10 md:block cursor-pointer"
 						onClick={() => setTheme("Light")}
 					/>
 				)}
