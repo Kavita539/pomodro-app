@@ -1,11 +1,22 @@
-import { Navbar } from "../../components";
+import { useState } from "react";
+import { Navbar, Timer, SettingsModal } from "../../components";
 
 const Pomodro = () => {
+    const [settingsModal, setSettingsModal] = useState(false);
     return(
-        <div>
+        <>
             <Navbar />
-             Pomodro
-        </div>
+            <div className="flex justify-center items-center mt-16">
+				{settingsModal ? (
+					<SettingsModal
+						modalSetting={settingsModal}
+						setModalSetting={setSettingsModal}
+					/>
+				) : (
+					<Timer setModalSetting={setSettingsModal} />
+				)}
+			</div>
+        </>
     );
 };
 

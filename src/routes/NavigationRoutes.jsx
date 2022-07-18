@@ -23,6 +23,7 @@ return(
         <Route path="/login" element={<Login />}/>
         <Route path="/signup" element={<Signup />} />
         <Route path="/pomodro" element={<PrivateRoutes element={Pomodro}/>}/>
+        <Route path="/pomodro/:taskId" element={<PrivateRoutes element={Pomodro}/>}/>
         <Route path="/userprofile" element={<PrivateRoutes element={UserProfile}/>}/>
         <Route path="/tasks" element={<PrivateRoutes element={Tasks}/>}/>
         <Route path="/mockman" element={<Mockman />} />

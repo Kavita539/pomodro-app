@@ -10,7 +10,8 @@ import {
 } from "react-router-dom";
 import {
   AuthProvider,
-  TaskProvider
+  TaskProvider,
+  TimerProvider
 } from "./context"
 
 // Call make Server
@@ -20,7 +21,9 @@ ReactDOM.render(
     <BrowserRouter>
 			<AuthProvider>
         <TaskProvider>
-          <App />
+          <TimerProvider>
+						<App />
+					</TimerProvider>
         </TaskProvider>
 			</AuthProvider>
 		</BrowserRouter>

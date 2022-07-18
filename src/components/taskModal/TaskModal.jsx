@@ -85,7 +85,7 @@ return(
                     <textarea name="description" id="taskDescription" cols="30" rows="15" placeholder="Add Description"
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-200 transition duration-150 ease-in-out sm:text-sm sm:leading-5 my-4 dark:text-black"
                         onChange={changeHandler} value={task.description || "" } required></textarea>
-                    <input name="time" type="number" min="0" placeholder="Add Time in Minutes"
+                    <input name="time" type="number" min="1" max="60" placeholder="Add Time in Minutes"
                         className="appearance-none block w-full px-3 py-2 border dark:text-black border-gray-300 rounded-md bg-gray-200 transition duration-150 ease-in-out sm:text-sm sm:leading-5 my-4"
                         onChange={changeHandler} value={task.time || "" } required />
                     <div className="flex justify-between">
