@@ -7,20 +7,24 @@ import React, {
 } from "react";
 import {
     useTask,
-    useAuth
+    useAuth, 
+	useTimer
 } from "../../context";
 import {
     PencilAltIcon,
     PlusCircleIcon,
     TrashIcon,
+	ClockIcon
 } from "@heroicons/react/solid";
 import {
     deleteTask,
     EditTask
 } from "../../services";
 import {
-    taskConstants
+    taskConstants,
+	timeConstants
 } from "../../constants";
+import { useNavigate } from "react-router-dom";
 
 const Tasks = () => {
     const [modal, setModal] = useState(false);
@@ -29,18 +33,21 @@ const Tasks = () => {
         description: "",
         time: "",
     });
+
     const {
         authState: {
             token,
             userInfo
         },
     } = useAuth();
+
     const {
         state: {
             tasks
         },
         dispatch,
     } = useTask();
+
     const userName = userInfo?.firstName || "Guest";
 
     const editTask = async (task) => {
@@ -57,6 +64,9 @@ const Tasks = () => {
         setTask("");
     };
 
+	const navigate = useNavigate();
+	const { timeDispatch } = useTimer();
+
     return(
         <>
 			<div className="h-full">
@@ -66,7 +76,7 @@ const Tasks = () => {
 			            <h2 className="font-semibold text-xl md:text-2xl md:mx-4 text-white ">{`Welcome back ${userName}`}</h2>
 			            <h3 className="my-4 md:mx-4 md:text-2xl font-medium text-white">
 			                {tasks && tasks.length === 0
-			                ? " Hey!! You have 0 task to do. Get staerted by adding tasks"
+			                ? " Hey!! You have 0 task to do. Get started by adding tasks"
 			                : `Hey!! You have ${tasks.length} tasks to Do. Happy tasking :)`}
 			            </h3>
 			            <div className=" rounded-3xl  bg-white dark:bg-neutral-600 shadow-2xl p-4 md:p-8">
@@ -98,6 +108,17 @@ const Tasks = () => {
 			                        </div>
 
 			                        <div className="flex gap-4 ">
+									<ClockIcon className="w-6 h-6 cursor-pointer" onClick={()=> {
+										timeDispatch({
+										type: timeConstants.CHANGE_TIME,
+										payload: {
+										workTimeMinutes: item.time,
+										breakTimeMinutes: 5,
+										},
+										});
+										navigate(`/pomodro/${item._id}`);
+										}}
+										/>
 			                            <PencilAltIcon className="w-6 h-6 cursor-pointer" onClick={(e)=> {
 			                                e.preventDefault();
 			                                setTask(item);

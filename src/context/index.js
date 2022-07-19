@@ -8,3 +8,8 @@ export {
     useTask
 }
 from "./taskContext";
+export {
+    TimerProvider,
+    useTimer
+}
+from "./timeContext"
