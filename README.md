@@ -73,6 +73,6 @@ Start the server
 
 ## Demo
 
-![kayyndra gif](./src/assets/kayyndra.gif.gif)
+![kayyndra gif](./src/assets/kayyndra.gif)
 
 
