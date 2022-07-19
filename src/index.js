@@ -11,7 +11,8 @@ import {
 import {
   AuthProvider,
   TaskProvider,
-  TimerProvider
+  TimerProvider,
+  ThemeProvider
 } from "./context"
 
 // Call make Server
@@ -19,6 +20,7 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <ThemeProvider>
 			<AuthProvider>
         <TaskProvider>
           <TimerProvider>
@@ -26,6 +28,7 @@ ReactDOM.render(
 					</TimerProvider>
         </TaskProvider>
 			</AuthProvider>
+    </ThemeProvider>
 		</BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

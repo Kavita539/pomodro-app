@@ -73,7 +73,7 @@ const loginHandler = async (email, password, dispatch) => {
 
 return (
 
-<div className="flex justify-center items-center  w-full h-screen">
+<div className="flex justify-center items-center  w-full h-screen ">
     <div className="flex items-center justify-around shadow-2xl dark:bg-neutral-700 rounded-md bg-white ">
         <div className="p-2 m-1 ">
             <div className="sm:mx-auto sm:w-full sm:max-w-md ">

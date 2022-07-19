@@ -11,7 +11,7 @@ import herobanner from "../../assets/herobanner.png";
 const Home = () => {
     return(
         <>
-		<div className="bg-white dark:bg-neutral-800 dark:text-white ">
+		<div className="bg-white dark:bg-neutral-800 dark:text-black ">
         <Navbar />
         <div className="relative w-screen flex flex-col overflow-x-hidden ">
             <div className="text-center pt-8  sm:text-blue sm:absolute sm:top-1/4  self-center  ">
