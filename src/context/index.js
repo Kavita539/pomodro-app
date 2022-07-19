@@ -12,4 +12,9 @@ export {
     TimerProvider,
     useTimer
 }
-from "./timeContext"
+from "./timeContext";
+export {
+    ThemeProvider,
+    useThemeContext
+}
+from "./themeContext";

@@ -9,7 +9,8 @@ import {
 	toast
 } from "react-toastify";
 import {
-	useAuth
+	useAuth,
+	useThemeContext
 } from "../../context";
 import {
 	authConstants
@@ -40,7 +41,7 @@ let Links = [{
 
 const [mobileNav, setMobileNav] = useState(false);
 
-const [theme, setTheme] = useState("Light");
+const { colorTheme, setTheme } = useThemeContext();
 
 const {
 	authState: {
@@ -63,15 +64,15 @@ return(
 				<h2 className="font-bold hover:text-blue-500 ">Kayyndra</h2>
 			</Link>
 			<div className=" absolute flex right-8 top-4 cursor-pointer md:hidden">
-				{theme === "Light" ? (
+				{colorTheme === "light" ? (
 					<SunIcon
 						className="block h-8 w-8 mr-4 md:hidden self-center"
-						onClick={() => setTheme("Dark")}
+						onClick={() => setTheme(colorTheme)}
 					/>
 				) : (
 					<MoonIcon
 						className="block h-8 w-8 mr-4 md:hidden self-center "
-						onClick={() => setTheme("Light")}
+						onClick={() => setTheme(colorTheme)}
 					/>
 				)}
 				{mobileNav ? (
@@ -109,21 +110,21 @@ return(
 						<p className="hover:text-blue-500 duration-500 cursor-pointer">Logout</p>
 					</li>
 				) : (
-					<li className="md:ml-8 text-l md:my-0 my-7  ">
+					<li className="md:ml-8 text-l md:my-0 my-7 ">
 						<Link to="/login" className=" hover:text-blue-500 duration-500 cursor-pointer">
 							Login
 						</Link>
 					</li>
 				)}
-				{theme === "Light" ? (
+				{colorTheme === "light" ? (
 					<SunIcon
 						className="hidden h-6 w-6 ml-10 md:block cursor-pointer"
-						onClick={() => setTheme("Dark")}
+						onClick={() => setTheme(colorTheme)}
 					/>
 				) : (
 					<MoonIcon
 						className="hidden h-6 w-6 ml-10 md:block cursor-pointer"
-						onClick={() => setTheme("Light")}
+						onClick={() => setTheme(colorTheme)}
 					/>
 				)}
 			</ul>
