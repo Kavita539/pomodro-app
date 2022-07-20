@@ -77,7 +77,7 @@ return(
                 task._id ? editTask(task) : addTask(token, task);
                 }}
                 >
-                <XIcon className="w-6 h-6 relative left-55 cursor-pointer" onClick={()=> setModal((modal) => !modal)}
+                <XIcon className="w-6 h-6 relative left-56 cursor-pointer" onClick={()=> setModal((modal) => !modal)}
                     />
                     <input name="title" placeholder="Add Title" type="text"
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-200 transition duration-150 ease-in-out sm:text-sm sm:leading-5 my-4 dark:text-black"

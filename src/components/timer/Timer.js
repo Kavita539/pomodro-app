@@ -65,6 +65,7 @@ const Timer = ({ setModalSetting }) => {
 		return () => clearInterval(timerId);
 	}, [workTimeMinutes, breakTimeMinutes, mode]);
 
+
 	const totalSeconds =
 		mode === "work" ? Number(workTimeMinutes) * 60 : Number(breakTimeMinutes) * 60;
 	const percentage = Math.round((secondsLeft / totalSeconds) * 100);
@@ -77,6 +78,8 @@ const Timer = ({ setModalSetting }) => {
 	useEffect(() => {
 		document.title = minutes + " : " + seconds;
 	}, [minutes, seconds]);
+
+	console.log(workTimeMinutes)
 
 	return (
 		<div className="flex flex-col md:flex-row w-full flex-wrap h-full  md:justify-around justify-center items-center">
@@ -124,7 +127,7 @@ const Timer = ({ setModalSetting }) => {
 							)}
 						</span>
 						<ChevronRightIcon
-							className="w-10 h-10 cursor-pointer border-2 border-pink-300 text-white dark:border-green-600 rounded-full"
+							className="w-10 h-10 cursor-pointer border-2 border-pink-300 text-white dark:border-blue-600 rounded-full"
 							onClick={() =>
 								setMode((mode) => (mode === "work" ? "break" : "work"))
 							}
