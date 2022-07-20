@@ -79,6 +79,8 @@ const Timer = ({ setModalSetting }) => {
 		document.title = minutes + " : " + seconds;
 	}, [minutes, seconds]);
 
+	console.log(workTimeMinutes)
+
 	return (
 		<div className="flex flex-col md:flex-row w-full flex-wrap h-full  md:justify-around justify-center items-center">
 			<div className="flex h-4/5 flex-col gap-2">
@@ -125,7 +127,7 @@ const Timer = ({ setModalSetting }) => {
 							)}
 						</span>
 						<ChevronRightIcon
-							className="w-10 h-10 cursor-pointer border-2 border-pink-300 text-white dark:border-green-600 rounded-full"
+							className="w-10 h-10 cursor-pointer border-2 border-pink-300 text-white dark:border-blue-600 rounded-full"
 							onClick={() =>
 								setMode((mode) => (mode === "work" ? "break" : "work"))
 							}

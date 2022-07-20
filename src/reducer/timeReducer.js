@@ -7,8 +7,8 @@ const timeReducer = (state, action) => {
         case timeConstants.CHANGE_TIME:
             return {
                 ...state,
-                workTimeMinutes: action.payload.workMinutes,
-                breakTimeMinutes: action.payload.breakMinutes,
+                workTimeMinutes: action.payload.workTimeMinutes,
+                breakTimeMinutes: action.payload.breakTimeMinutes,
             };
         default:
             return state;
