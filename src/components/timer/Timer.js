@@ -65,6 +65,7 @@ const Timer = ({ setModalSetting }) => {
 		return () => clearInterval(timerId);
 	}, [workTimeMinutes, breakTimeMinutes, mode]);
 
+
 	const totalSeconds =
 		mode === "work" ? Number(workTimeMinutes) * 60 : Number(breakTimeMinutes) * 60;
 	const percentage = Math.round((secondsLeft / totalSeconds) * 100);

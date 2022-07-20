@@ -139,7 +139,7 @@ const Tasks = () => {
 			            </div>
 			        </div>
 			    </div>
-			    <TaskModal modal={modal} setModal={setModal} task={task} setTask={setTask} />
+			    <TaskModal modal={modal} setModal={setModal} task={task ?? ""} setTask={setTask} />
 			</div>
         </>
     );
