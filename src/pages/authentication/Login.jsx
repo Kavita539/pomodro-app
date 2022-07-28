@@ -122,23 +122,6 @@ return (
                     </div>
                 </div>
 
-                <div className="flex items-center justify-between mt-6">
-                    <div className="flex items-center">
-                        <input id="remember" type="checkbox"
-                            className="form-checkbox w-4 h-4 transition duration-150 ease-in-out" />
-                        <label htmlFor="remember"
-                            className="block ml-2 text-sm text-gray-900 leading-5 dark:text-white">
-                            Remember
-                        </label>
-                    </div>
-
-                    <div className="text-sm leading-5">
-                        <Link to="/" className="font-medium transition ease-in-out duration-150">
-                        Forgot your password?
-                        </Link>
-                    </div>
-                </div>
-
                 <div className="mt-6">
                     <span className="block w-full rounded-md shadow-sm">
                         <button type="submit"
