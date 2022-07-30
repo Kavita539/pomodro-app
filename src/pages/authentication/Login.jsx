@@ -21,21 +21,21 @@ authConstants
 
 const Login = () => {
 const [userDetail, setUserDetail] = useState({
-    email: "",
-    password: "",
+email: "",
+password: "",
 });
 
 const {
-    authDispatch
+authDispatch
 } = useAuth();
 const navigate = useNavigate();
 const location = useLocation();
 
 const changeHandler = (e) => {
-    setUserDetail({
-        ...userDetail,
-        [e.target.name]: e.target.value
-    })
+setUserDetail({
+...userDetail,
+[e.target.name]: e.target.value
+})
 };
 
 let from = location.state?.from?.pathname || "/";
@@ -46,15 +46,14 @@ const loginHandler = async (email, password, dispatch) => {
             email,
             password,
         });
-
         localStorage.setItem("token", response.data.encodedToken);
-			dispatch({
-				type: authConstants.AUTHENTICATION,
-				payload: {
-					token: response.data.encodedToken,
-					userInfo: response.data.foundUser,
-				},
-		});
+        dispatch({
+            type: authConstants.AUTHENTICATION,
+            payload: {
+                token: response.data.encodedToken,
+                userInfo: response.data.foundUser,
+            },
+        });
         toast.success("Logged in Successfully ", toastStyle);
         navigate(from, {
             replace: true
@@ -119,23 +118,6 @@ return (
                         <input id="password" type="password" required
                             className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                             name="password" onChange={changeHandler} autoComplete="on" />
-                    </div>
-                </div>
-
-                <div className="flex items-center justify-between mt-6">
-                    <div className="flex items-center">
-                        <input id="remember" type="checkbox"
-                            className="form-checkbox w-4 h-4 transition duration-150 ease-in-out" />
-                        <label htmlFor="remember"
-                            className="block ml-2 text-sm text-gray-900 leading-5 dark:text-white">
-                            Remember
-                        </label>
-                    </div>
-
-                    <div className="text-sm leading-5">
-                        <Link to="/" className="font-medium transition ease-in-out duration-150">
-                        Forgot your password?
-                        </Link>
                     </div>
                 </div>
 

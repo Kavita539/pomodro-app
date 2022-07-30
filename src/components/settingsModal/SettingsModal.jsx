@@ -31,7 +31,7 @@ const SettingsModal = ({modalSetting, setModalSetting}) => {
                             </li>
                             <li className="flex flex-col mb-4">
                                 <label className="my-2">{`Break Time : ${breakTime} `}</label>
-                                <input name="breakTime" type="range" min="0" max="30" value={breakTime} onChange={(e)=>
+                                <input name="breakTime" type="range" min="1" max="30" value={breakTime} onChange={(e)=>
                                 setBreakTime(e.target.value)}
                                 />
                             </li>

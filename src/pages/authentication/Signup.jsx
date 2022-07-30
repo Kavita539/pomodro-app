@@ -40,6 +40,10 @@ const Signup = () => {
         })
     };
 
+    // const registrationHandler = () => {
+    //     toast.error("Please fill in the details", toastStyle);
+    // }
+
     const signupHandler = async (
         firstName,
         lastName,
@@ -48,7 +52,7 @@ const Signup = () => {
         dispatch
     ) => {
         try {
-
+            
             const response = await axios.post(`/api/auth/signup`, {
                 firstName,
                 lastName,
@@ -72,7 +76,7 @@ const Signup = () => {
         } catch (error) {
             if (error.response.status === 422) {
                 toast.error("Email Already Exists", toastStyle);
-            } else {
+            }else {
                 toast.error("Server Error", toastStyle);
             }
         }
@@ -126,7 +130,7 @@ const Signup = () => {
                                 type="text"
                                 required
                                 autoFocus
-                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 transition duration-150 ease-in-out sm:text-sm text-black sm:leading-5"
                                 name="firstName"
                                 onChange={changeHandler}
                             />
@@ -146,7 +150,7 @@ const Signup = () => {
                                 type="text"
                                 required
                                 autoFocus
-                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 transition duration-150 ease-in-out sm:text-sm text-black sm:leading-5"
                                 name="lastName"
                                 onChange={changeHandler}
                             />
@@ -166,7 +170,7 @@ const Signup = () => {
                                 type="email"
                                 required
                                 autoFocus
-                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 transition duration-150 ease-in-out sm:text-sm text-black sm:leading-5"
                                 placeholder="test@gmail.com"
                                 name="email"
                                 onChange={changeHandler}
@@ -186,27 +190,11 @@ const Signup = () => {
                                 id="password"
                                 type="password"
                                 required
-                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 transition duration-150 ease-in-out sm:text-sm text-black sm:leading-5"
                                 name="password"
                                 onChange={changeHandler}
                                 autoComplete="on"
                             />
-                        </div>
-                    </div>
-
-                    <div className="flex items-center justify-between mt-2">
-                        <div className="flex items-center">
-                            <input
-                                id="remember"
-                                type="checkbox"
-                                className="form-checkbox w-4 h-4 transition duration-150 ease-in-out"
-                            />
-                            <label
-                                htmlFor="remember"
-                                className="block ml-2 text-sm text-gray-900 leading-5 dark:text-white"
-                            >
-                                I accept Terms and Conditions
-                            </label>
                         </div>
                     </div>
 
