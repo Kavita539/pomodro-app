@@ -1,6 +1,6 @@
 import React from "react";
 import {
-useState
+useState, useEffect
 } from "react";
 import {
 Link,
@@ -12,7 +12,7 @@ import {
 toast
 } from "react-toastify";
 import {
-toastStyle
+toastStyle, validLoginFormChecker
 } from "../../utils";
 import {useAuth} from "../../context"
 import {
@@ -21,53 +21,58 @@ authConstants
 
 const Login = () => {
 const [userDetail, setUserDetail] = useState({
-    email: "",
-    password: "",
+email: "",
+password: "",
 });
+const [formErrors, setFormErrors] = useState({});
+const [submitted, setSubmitted] = useState(false);
 
 const {
-    authDispatch
+authDispatch
 } = useAuth();
 const navigate = useNavigate();
 const location = useLocation();
 
 const changeHandler = (e) => {
-    setUserDetail({
-        ...userDetail,
-        [e.target.name]: e.target.value
-    })
+setUserDetail({
+...userDetail,
+[e.target.name]: e.target.value
+})
 };
+
+useEffect(() => {
+    setFormErrors(() => validLoginFormChecker(userDetail));
+}, [userDetail, submitted]);
 
 let from = location.state?.from?.pathname || "/";
 
 const loginHandler = async (email, password, dispatch) => {
-    try {
-        const response = await axios.post(`/api/auth/login`, {
-            email,
-            password,
-        });
-
-        localStorage.setItem("token", response.data.encodedToken);
-			dispatch({
-				type: authConstants.AUTHENTICATION,
-				payload: {
-					token: response.data.encodedToken,
-					userInfo: response.data.foundUser,
-				},
-		});
-        toast.success("Logged in Successfully ", toastStyle);
-        navigate(from, {
-            replace: true
-        });
-    } catch (error) {
-        if (error.response.status === 404) {
-            toast.error("Wrong Email", toastStyle);
-        } else if (error.response.status === 401) {
-            toast.error("Invalid Credentials", toastStyle);
-        } else {
-            toast.error("Server Error", toastStyle);
-        }
-    }
+try {
+const response = await axios.post(`/api/auth/login`, {
+email,
+password,
+});
+localStorage.setItem("token", response.data.encodedToken);
+dispatch({
+type: authConstants.AUTHENTICATION,
+payload: {
+token: response.data.encodedToken,
+userInfo: response.data.foundUser,
+},
+});
+toast.success("Logged in Successfully ", toastStyle);
+navigate(from, {
+replace: true
+});
+} catch (error) {
+if (error.response.status === 404) {
+toast.error("Wrong Email", toastStyle);
+} else if (error.response.status === 401) {
+toast.error("Invalid Credentials", toastStyle);
+} else {
+toast.error("Server Error", toastStyle);
+}
+}
 }
 
 
