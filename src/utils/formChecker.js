@@ -1,6 +1,3 @@
-var passwordFormat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
 const validFormChecker = userDetail => {
   const { name, lastName, email, password, confirmPassword, agreement } = userDetail;
   const err = {};
@@ -12,13 +9,13 @@ const validFormChecker = userDetail => {
     err.lastName = "Enter valid lastname";
   }
 
-  if (!email.match(mailFormat)) {
+  if (!email) {
     err.email = "Enter valid email";
   }
 
   if (!password) {
     err.password = "Enter valid password";
-  } else if (!password.match(passwordFormat)) {
+  } else if (!password) {
     err.password = "Too weak!!";
   }
   if (!confirmPassword) {
@@ -37,7 +34,7 @@ const validLoginFormChecker = userDetail => {
   const { email, password } = userDetail;
   const err = {};
 
-  if (!email.match(mailFormat)) {
+  if (!email) {
     err.email = "Enter valid email";
   }
 
