@@ -1,8 +1,8 @@
-const validFormChecker = userDetail => {
-  const { name, lastName, email, password, confirmPassword, agreement } = userDetail;
+const validSignupFormChecker = userDetail => {
+    const { firstName, lastName, email, password, confirmPassword, agreement } = userDetail;
   const err = {};
-  if (!name) {
-    err.name = "Enter valid name";
+  if (!firstName) {
+    err.firstName = "Enter valid name";
   }
 
   if (!lastName) {
@@ -15,9 +15,11 @@ const validFormChecker = userDetail => {
 
   if (!password) {
     err.password = "Enter valid password";
-  } else if (!password) {
+  }
+  else if (!password) {
     err.password = "Too weak!!";
   }
+
   if (!confirmPassword) {
     err.confirmPassword = "Confirm the password";
   } else if (confirmPassword !== password) {
@@ -27,11 +29,12 @@ const validFormChecker = userDetail => {
   if (agreement === "not agree") {
     err.agreement = "Please check this box if you want to proceed";
   }
+
   return err;
 };
 
-const validLoginFormChecker = userDetail => {
-  const { email, password } = userDetail;
+const validLoginFormChecker = userDetail =>{
+    const { email, password } = userDetail;
   const err = {};
 
   if (!email) {
@@ -45,4 +48,4 @@ const validLoginFormChecker = userDetail => {
   return err;
 };
 
-export { validFormChecker, validLoginFormChecker };
+export {validSignupFormChecker, validLoginFormChecker};

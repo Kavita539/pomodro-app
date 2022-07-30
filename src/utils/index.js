@@ -1,2 +1,2 @@
 export { toastStyle } from "./toastStyle";
-export { validFormChecker, validLoginFormChecker } from "./formChecker";
+export { validSignupFormChecker, validLoginFormChecker } from "./formChecker";

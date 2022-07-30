@@ -41,32 +41,32 @@ setUserDetail({
 let from = location.state?.from?.pathname || "/";
 
 const loginHandler = async (email, password, dispatch) => {
-try {
-const response = await axios.post(`/api/auth/login`, {
-email,
-password,
-});
-localStorage.setItem("token", response.data.encodedToken);
-dispatch({
-type: authConstants.AUTHENTICATION,
-payload: {
-token: response.data.encodedToken,
-userInfo: response.data.foundUser,
-},
-});
-toast.success("Logged in Successfully ", toastStyle);
-navigate(from, {
-replace: true
-});
-} catch (error) {
-if (error.response.status === 404) {
-toast.error("Wrong Email", toastStyle);
-} else if (error.response.status === 401) {
-toast.error("Invalid Credentials", toastStyle);
-} else {
-toast.error("Server Error", toastStyle);
-}
-}
+    try {
+        const response = await axios.post(`/api/auth/login`, {
+            email,
+            password,
+        });
+        localStorage.setItem("token", response.data.encodedToken);
+        dispatch({
+            type: authConstants.AUTHENTICATION,
+            payload: {
+                token: response.data.encodedToken,
+                userInfo: response.data.foundUser,
+            },
+        });
+        toast.success("Logged in Successfully ", toastStyle);
+        navigate(from, {
+            replace: true
+        });
+    } catch (error) {
+        if (error.response.status === 404) {
+            toast.error("Wrong Email", toastStyle);
+        } else if (error.response.status === 401) {
+            toast.error("Invalid Credentials", toastStyle);
+        } else {
+            toast.error("Server Error", toastStyle);
+        }
+    }
 }
 
 
