@@ -1,6 +1,6 @@
 import React from "react";
 import {
-useState, useEffect
+useState
 } from "react";
 import {
 Link,
@@ -12,7 +12,7 @@ import {
 toast
 } from "react-toastify";
 import {
-toastStyle, validLoginFormChecker
+toastStyle
 } from "../../utils";
 import {useAuth} from "../../context"
 import {
@@ -24,8 +24,6 @@ const [userDetail, setUserDetail] = useState({
 email: "",
 password: "",
 });
-const [formErrors, setFormErrors] = useState({});
-const [submitted, setSubmitted] = useState(false);
 
 const {
 authDispatch
@@ -39,10 +37,6 @@ setUserDetail({
 [e.target.name]: e.target.value
 })
 };
-
-useEffect(() => {
-    setFormErrors(() => validLoginFormChecker(userDetail));
-}, [userDetail, submitted]);
 
 let from = location.state?.from?.pathname || "/";
 
